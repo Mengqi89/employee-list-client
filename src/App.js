@@ -20,7 +20,7 @@ function App() {
 				</nav>
 				<Switch>
 					<Route path="/" exact render={() => <EmployeeProfileList profiles={profiles} loading={loading} error={error} />}></Route>
-					<Route path="/employee/:id" render={() => <EmployeeProfile profiles={profiles}/>}></Route>
+					<Route path="/employee/:username" render={() => <EmployeeProfile profiles={profiles}/>}></Route>
 				</Switch>
 			</div>
 		</Router>
