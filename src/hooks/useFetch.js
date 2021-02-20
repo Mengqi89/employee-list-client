@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const useFetch = (url, options) => {
-	const [response, setResponse] = useState(null)
+	const [profiles, setProfiles] = useState(null)
 	const [error, setError] = useState(null)
 	const [loading, setLoading] = useState(false)
 	useEffect(() => {
@@ -13,7 +13,7 @@ const useFetch = (url, options) => {
 				const res = await fetch(url, options)
 				const json = await res.json()
 				if (!signal.aborted) {
-					setResponse(json)
+					setProfiles(json)
 				}
 			} catch (e) {
 				console.log(e)
@@ -31,6 +31,6 @@ const useFetch = (url, options) => {
 			abortController.abort()
 		}
 	}, [])
-	return { response, error, loading }
+	return { profiles, error, loading }
 }
 export default useFetch
