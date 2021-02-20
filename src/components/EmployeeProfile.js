@@ -1,9 +1,11 @@
 import React from 'react'
+import {useParams} from 'react-router'
 
 const EmployeeProfile = () => {
+	const {id} = useParams()
 	return (
 		<>
-			<h3>EmployeeProfile</h3>
+			<h3>EmployeeProfile <span>{id}</span></h3>
 		</>
 	)
 }

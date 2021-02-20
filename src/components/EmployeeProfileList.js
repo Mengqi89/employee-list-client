@@ -1,13 +1,14 @@
 import React from 'react'
-import useFetch from '../hooks/useFetch'
+import PropTypes from 'prop-types'
 
-const EmployeeProfileList = () => {
-	const { profiles, loading, error } = useFetch('http://localhost:5000/api/employees')
-    
+import { Link } from 'react-router-dom'
+
+
+const EmployeeProfileList = ({ profiles, loading, error }) => {
     
 	const table = profiles && profiles.results.map((profile, index) =>
 		<tr key={'profile-' + index}>
-			<td>{profile.name.first} {profile.name.last}</td>
+			<td><Link to={'employee/' + profile.login.username}>{profile.name.first} {profile.name.last}</Link></td>
 			<td>{profile.email}</td>
 			<td>{profile.location.city}</td>
 			<td>{profile.location.country}</td>
@@ -18,7 +19,6 @@ const EmployeeProfileList = () => {
 
 	return (
 		<>
-			<h1>Employee List</h1>
 			{loading && <p>loading...</p>}
 			{error && <p>{error.error}</p>}
 			<table>
@@ -34,6 +34,12 @@ const EmployeeProfileList = () => {
 			</table>
 		</>
 	)
+}
+
+EmployeeProfileList.propTypes = {
+	profiles: PropTypes.object,
+	loading: PropTypes.bool,
+	error: PropTypes.object
 }
 
 export default EmployeeProfileList
