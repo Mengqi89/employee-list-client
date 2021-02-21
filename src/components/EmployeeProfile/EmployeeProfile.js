@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import PostalAddress from 'i18n-postal-address'
+import './EmployeeProfile.css'
 
 import { useParams } from 'react-router'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faEnvelopeSquare, faCity, faMapMarkedAlt, faBirthdayCake} from '@fortawesome/free-solid-svg-icons'
 
 const EmployeeProfile = ({profiles}) => {
 	const {username} = useParams()
@@ -19,16 +22,16 @@ const EmployeeProfile = ({profiles}) => {
 		.setPostalCode(profile.location.postcode)
 	
 	return (
-		<>
+		<div className="profile-container">
 			<div><img src={profile.picture.large} alt={'profile picture of ' + profile.name.first}></img></div>
 			<div>
 				<h3>{profile.name.first} {profile.name.last}</h3>
-				<div>{profile.email}</div>
-				<div>City: {profile.location.city}</div>
-				<div>{employeeAddress.toString()}</div>
-				<div>Birthday: {profile.dob.date}</div>
+				<div className="employee-detail"><FontAwesomeIcon icon={faEnvelopeSquare} /> {profile.email}</div>
+				<div className="employee-detail"><FontAwesomeIcon icon={faCity} /> {profile.location.city}</div>
+				<div className="employee-detail"><FontAwesomeIcon icon={faMapMarkedAlt} /> {employeeAddress.toString()}</div>
+				<div className="employee-detail"><FontAwesomeIcon icon={faBirthdayCake} /> {profile.dob.date.slice(0, 10)}</div>
 			</div>
-		</>
+		</div>
 	)
 }
 

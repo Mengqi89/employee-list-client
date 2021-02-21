@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import './App.css'
 
-import NavBar from './components/NavBar'
-import EmployeeProfileList from './components/EmployeeProfileList'
-import EmployeeProfile from './components/EmployeeProfile'
+import NavBar from './components/NavBar/NavBar'
+import EmployeeProfileList from './components/EmployeeProfileList/EmployeeProfileList'
+import EmployeeProfile from './components/EmployeeProfile/EmployeeProfile'
 import ListApiService from './services/list-api-service'
+
 
 let timer
 class App extends Component {
@@ -42,8 +44,9 @@ class App extends Component {
 					.then(profiles => {
 						const newProfiles = [...profiles.results, ...this.state.profiles]
 						this.setState({
-							loading: false,
-							profiles: newProfiles})
+							profiles: newProfiles,
+							loading: false
+						})
 					})
 					.catch(error => this.setState({ error: error.error }))
 			}
@@ -51,6 +54,8 @@ class App extends Component {
 	}
 
 	render() {
+		const loader = <div className="loader"></div>
+
 		return (
 			<Router>
 				<div className="App">
@@ -60,8 +65,8 @@ class App extends Component {
 						<Route path="/" exact render={() => <EmployeeProfileList profiles={this.state.profiles}/>}></Route>
 						<Route path="/employee/:username" render={() => <EmployeeProfile profiles={this.state.profiles}/>}></Route>
 					</Switch>
+					{this.state.loading && loader}
 				</div>
-				{this.state.loading && <p>loading...</p>}
 			</Router>
 		)
 	} 

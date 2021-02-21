@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
+import './EmployeeProfileList.css'
+
 const EmployeeProfileList = ({profiles}) => {
 
 	const table = profiles && profiles.map((profile, index) =>
@@ -16,19 +18,26 @@ const EmployeeProfileList = ({profiles}) => {
 		
 	return (
 		<>
-			<table>
-				<tbody>
-					<tr>
-						<th>Number</th>
-						<th>Full Name</th>
-						<th>Email</th>
-						<th>City</th>
-						<th>Country</th>
-					</tr>
-					{table}
-				</tbody>
-			</table>
-
+			<div className="tbl-header">
+				<table>
+					<thead>
+						<tr>
+							<th>Number</th>
+							<th>Full Name</th>
+							<th>Email</th>
+							<th>City</th>
+							<th>Country</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div className="tbl-content">
+				<table>
+					<tbody>
+						{table}
+					</tbody>
+				</table>
+			</div>
 		</>
 	)
 

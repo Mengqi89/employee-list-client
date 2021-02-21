@@ -1,6 +1,12 @@
+nav {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+}
 ul {
     list-style-type: none;
-    background: lightskyblue;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -25,12 +31,12 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 1.2em;
-    border: 3px solid white;
+    border: 3px solid #4ca1af;
     border-radius: 8px;
     display: flex;
 }
 
 li a:hover {
-    background-color: white;
-    color: lightskyblue;
+    background-color: #4ca1af;
+    color: white;
 }
