@@ -1,0 +1,36 @@
+ul {
+    list-style-type: none;
+    background: lightskyblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li {
+    float: left;
+    display: block;
+    margin: auto 0;
+    padding: 0 3em;
+}
+
+#company-name {
+    font-family: cursive;
+    font-size: 1.4em;
+    font-weight: bolder;
+}
+
+li a {
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border: 3px solid white;
+    border-radius: 8px;
+    display: flex;
+}
+
+li a:hover {
+    background-color: white;
+    color: lightskyblue;
+}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './App.css'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import NavBar from './components/NavBar'
@@ -32,15 +31,18 @@ class App extends Component {
 			window.clearTimeout(timer)
 		}
 		timer = window.setTimeout(() => {
-			if (this.state.profiles.length === 500) { 
+			if (this.state.profiles.length === 7000) { 
 				this.setState({loading: false})
 			}
-			if (document.body.clientHeight - window.pageYOffset < 1000 && this.state.profiles.length < 500) {
+			if (document.body.clientHeight - window.pageYOffset < 1000 && this.state.profiles.length < 6501) {
+				this.setState({
+					loading: true
+				})
 				ListApiService.getEmployeeProfileList()
 					.then(profiles => {
 						const newProfiles = [...profiles.results, ...this.state.profiles]
 						this.setState({
-							loading: true,
+							loading: false,
 							profiles: newProfiles})
 					})
 					.catch(error => this.setState({ error: error.error }))
