@@ -16,9 +16,21 @@ table {
 th {
     text-align: center;
     overflow: hidden;
+    border: 1px solid #4ca1af;
 }
 td {
     padding: 0.2em;
     text-align: center;
     text-decoration: none;
+}
+
+.display-total {
+    text-align: right;
+    margin-bottom: 20px;
+    margin-right: 45px;
+    font-weight: bolder;
+}
+
+.display-total span {
+    color: #4ca1af;
 }

@@ -15,10 +15,13 @@ const EmployeeProfileList = ({profiles}) => {
 			<td>{profile.location.country}</td>
 		</tr>
 	)
+
+	const total = <div className="display-total">Total in display: <span>{profiles && profiles.length}</span></div>
 		
 	return (
 		<>
 			<div className="tbl-header">
+				{total}
 				<table>
 					<thead>
 						<tr>
