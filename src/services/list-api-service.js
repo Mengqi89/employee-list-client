@@ -1,6 +1,7 @@
 import config from '../config'
-
+console.log(`${config.API_ENDPOINT}/employees`)
 const ListApiService = {
+	
 	getEmployeeProfileList() {
 		return fetch(`${config.API_ENDPOINT}/employees`, {
 			headers: {}
