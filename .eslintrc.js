@@ -39,5 +39,6 @@ module.exports = {
 				'jest': true
 			}
 		}
-	]
+	],
+	parser: 'babel-eslint'
 }

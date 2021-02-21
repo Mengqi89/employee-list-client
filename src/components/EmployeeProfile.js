@@ -4,8 +4,6 @@ import PostalAddress from 'i18n-postal-address'
 
 import { useParams } from 'react-router'
 
-
-
 const EmployeeProfile = ({profiles}) => {
 	const {username} = useParams()
 	const [profile] = profiles.results.filter(profile => profile.login.username === username)
@@ -26,9 +24,9 @@ const EmployeeProfile = ({profiles}) => {
 			<div>
 				<h3>{profile.name.first} {profile.name.last}</h3>
 				<div>{profile.email}</div>
-				<div>{profile.location.city}</div>
+				<div>City: {profile.location.city}</div>
 				<div>{employeeAddress.toString()}</div>
-				<div>{profile.dob.date}</div>
+				<div>Birthday: {profile.dob.date}</div>
 			</div>
 		</>
 	)

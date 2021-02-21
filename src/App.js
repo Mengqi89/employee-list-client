@@ -1,14 +1,11 @@
 import React from 'react'
 import './App.css'
 import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
-import useFetch from './hooks/useFetch'
 
 import EmployeeProfileList from './components/EmployeeProfileList'
 import EmployeeProfile from './components/EmployeeProfile'
 
 function App() {
-	const { profiles, loading, error } = useFetch('http://localhost:5000/api/employees')
-
 	return (
 		<Router>
 			<div className="App">
@@ -19,8 +16,10 @@ function App() {
 					</ul>
 				</nav>
 				<Switch>
-					<Route path="/" exact render={() => <EmployeeProfileList profiles={profiles} loading={loading} error={error} />}></Route>
-					<Route path="/employee/:username" render={() => <EmployeeProfile profiles={profiles}/>}></Route>
+					<Route path="/">
+						<EmployeeProfileList />
+					</Route>
+					<Route path="/employee/:username" render={() => <EmployeeProfile />}></Route>
 				</Switch>
 			</div>
 		</Router>
