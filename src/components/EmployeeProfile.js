@@ -6,7 +6,7 @@ import { useParams } from 'react-router'
 
 const EmployeeProfile = ({profiles}) => {
 	const {username} = useParams()
-	const [profile] = profiles.results.filter(profile => profile.login.username === username)
+	const [profile] = profiles.filter(profile => profile.login.username === username)
 
 	const employeeAddress = new PostalAddress()
 	employeeAddress
@@ -33,7 +33,7 @@ const EmployeeProfile = ({profiles}) => {
 }
 
 EmployeeProfile.propTypes = {
-	profiles: PropTypes.object
+	profiles: PropTypes.array
 }
 
 export default EmployeeProfile
