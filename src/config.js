@@ -1,3 +1,3 @@
 export default {
-	API_ENDPOINT: 'https://protected-reaches-95773.herokuapp.com/api'
+	API_ENDPOINT: process.env.REACT_APP_API_ENDPOINT || 'http://localhost:5000/api',
 }
