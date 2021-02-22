@@ -22,7 +22,7 @@ class App extends Component {
 					profiles: profiles.results,
 					loading: false})
 			})
-			.catch(error => console.log(error))
+			.catch(error => this.setState({error}))
 		
 		window.addEventListener('scroll', this.handleScroll)
 	}
