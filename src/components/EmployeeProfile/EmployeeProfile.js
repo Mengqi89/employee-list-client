@@ -7,10 +7,12 @@ import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faEnvelopeSquare, faCity, faMapMarkedAlt, faBirthdayCake} from '@fortawesome/free-solid-svg-icons'
 
-const EmployeeProfile = ({profiles}) => {
+// TODO: need to implement error boundary for this component
+const EmployeeProfile = ({ profiles }) => {
 	const {username} = useParams()
-	const [profile] = profiles.filter(profile => profile.login.username === username)
+	const [profile] = profiles && profiles.filter(profile => profile.login.username === username)
 
+	// Format addresses based on regional specifications
 	const employeeAddress = new PostalAddress()
 	employeeAddress
 		.setAddress1(profile.location.street.name)
@@ -36,7 +38,8 @@ const EmployeeProfile = ({profiles}) => {
 }
 
 EmployeeProfile.propTypes = {
-	profiles: PropTypes.array
+	profiles: PropTypes.array,
+	error: PropTypes.object
 }
 
 export default EmployeeProfile

@@ -7,7 +7,6 @@ import EmployeeProfileList from './components/EmployeeProfileList/EmployeeProfil
 import EmployeeProfile from './components/EmployeeProfile/EmployeeProfile'
 import ListApiService from './services/list-api-service'
 
-
 let timer
 class App extends Component {
 	state = {
@@ -23,7 +22,7 @@ class App extends Component {
 					profiles: profiles.results,
 					loading: false})
 			})
-			.catch(error => this.setState({error: error.error}))
+			.catch(error => console.log(error))
 		
 		window.addEventListener('scroll', this.handleScroll)
 	}
@@ -63,7 +62,7 @@ class App extends Component {
 					{this.state.error && <p>{this.state.error.error}</p>}
 					<Switch>
 						<Route path="/" exact render={() => <EmployeeProfileList profiles={this.state.profiles}/>}></Route>
-						<Route path="/employee/:username" render={() => <EmployeeProfile profiles={this.state.profiles}/>}></Route>
+						<Route path="/employee/:username" render={() => <EmployeeProfile profiles={this.state.profiles} error={this.state.error} />}></Route>
 					</Switch>
 					{this.state.loading && loader}
 				</div>
