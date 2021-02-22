@@ -9,8 +9,7 @@ table {
 }
 
 .tbl-content {
-    margin-top: 120px;
-    /* margin-bottom: 100px; */
+    margin-top: 150px;
     background: linear-gradient(to bottom, #c4e0e5, #4ca1af);
 }
 th {
