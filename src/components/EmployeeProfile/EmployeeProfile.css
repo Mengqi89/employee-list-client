@@ -1,5 +1,6 @@
 .profile-container {
-    margin-top: 150px;
+    margin-top: 140px;
+    height: 55vh;
     display: flex;
     flex-direction: column;
     text-align: center;
